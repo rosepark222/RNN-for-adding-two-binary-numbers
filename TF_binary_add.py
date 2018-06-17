@@ -139,7 +139,7 @@ with tf.Session() as sess:
                 	actual = np.append(actual, 0)
 
 
-            print("a ", a, "+b ", b, "= expected >", c,  "actual ", actual)
+            print("a ", a, "+b ", b, "= expected >", c,  "actual ", actual.astype(int))
 
 
 
