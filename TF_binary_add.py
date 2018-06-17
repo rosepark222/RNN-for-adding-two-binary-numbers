@@ -140,6 +140,7 @@ with tf.Session() as sess:
 
 
             print("a ", a, "+b ", b, "= expected", c,  ", actual ", actual)
+            print("a ", a, "+b ", b, "= expected", c,  ", actual ", actual)
 
 
 
