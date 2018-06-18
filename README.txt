@@ -1,3 +1,8 @@
+Jun 17th, added a code performing the 16 bit addition.
+
+    TF_binary_add_16bits.py
+
+
 Two different implementations of adding two 8 bit binary numbers using RNN.
 
 TF_binary_add.py  
