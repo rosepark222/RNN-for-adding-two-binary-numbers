@@ -5,6 +5,7 @@ import copy, numpy as np
 import tensorflow as tf
 import datetime
 
+import csv
 
 np.random.seed(0)
 
@@ -173,21 +174,7 @@ with tf.Session() as sess:
             print(msg)
 
 
-#  ÛÛÛÛÛ                ÛÛÛÛÛ                                        
-# °°ÛÛÛ                °°ÛÛÛ                                         
-#  °ÛÛÛÛÛÛÛ   ÛÛÛÛÛÛ   ÛÛÛÛÛÛÛ   ÛÛÛÛÛÛÛÛÛÛÛÛÛ    ÛÛÛÛÛÛ   ÛÛÛÛÛÛÛÛ  
-#  °ÛÛÛ°°ÛÛÛ °°°°°ÛÛÛ °°°ÛÛÛ°   °°ÛÛÛ°°ÛÛÛ°°ÛÛÛ  °°°°°ÛÛÛ °°ÛÛÛ°°ÛÛÛ 
-#  °ÛÛÛ °ÛÛÛ  ÛÛÛÛÛÛÛ   °ÛÛÛ     °ÛÛÛ °ÛÛÛ °ÛÛÛ   ÛÛÛÛÛÛÛ  °ÛÛÛ °ÛÛÛ 
-#  °ÛÛÛ °ÛÛÛ ÛÛÛ°°ÛÛÛ   °ÛÛÛ ÛÛÛ °ÛÛÛ °ÛÛÛ °ÛÛÛ  ÛÛÛ°°ÛÛÛ  °ÛÛÛ °ÛÛÛ 
-#  ÛÛÛÛÛÛÛÛ °°ÛÛÛÛÛÛÛÛ  °°ÛÛÛÛÛ  ÛÛÛÛÛ°ÛÛÛ ÛÛÛÛÛ°°ÛÛÛÛÛÛÛÛ ÛÛÛÛ ÛÛÛÛÛ
-# °°°°°°°°   °°°°°°°°    °°°°°  °°°°° °°° °°°°°  °°°°°°°° °°°° °°°°° 
-#Or, maybe you reached a local minimum, that's why the value of the cost function 
-# oscillates. Try to add a small random noise to avoid the local minima or try 
-# another method instead of gradient descent - stochastic gradient descent or 
-# use a Radial Basis Function neural network.
-#https://www.researchgate.net/post/Why_MLP_is_not_converging
-
-#Although the behaviour shown by your model is rare, yet I think it's somehow explainable. You are right that stochastic gradient serves as some noise during learning and may help escape local minima. However, the samples for each class contained in successive batches may be somewhat inconsistent (so noisy) such that weights updates is erratic and therefore causes the value of your loss function to oscillate in the error-weight space. As you pointed out in your case, increasing the batch size exposes the neural network to more samples per class every iteration; and hence, there's lesser influence of highly noisy samples on weights update, and consequently the minimized loss experience little or no oscillate. i.e. consistent decrease in the loss. I hope this helps.
-#https://www.researchgate.net/post/Why_MLP_is_not_converging
-
+with open('loss_16bit.csv', 'w+') as csvfile:
+    csvwrite = csv.writer(csvfile, delimiter=',')
+    csvwrite.writerow(loss_list)
 

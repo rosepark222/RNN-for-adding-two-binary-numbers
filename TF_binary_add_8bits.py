@@ -8,6 +8,20 @@ import copy, numpy as np
 import tensorflow as tf
 import datetime
 
+import matplotlib.pyplot as plt
+from IPython.display import Image
+from IPython.core.display import HTML
+
+import csv
+#with open('eggs.csv', 'rb') as csvfile:
+#   spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
+#   for row in spamreader:
+#      print (', '.join(row))
+
+
+
+
+
 
 np.random.seed(0)
 
@@ -140,7 +154,16 @@ with tf.Session() as sess:
 
 
             print("a ", a, "+b ", b, "= expected ", c,  "actual ", actual.astype(int))
+#            print("H ", _H)
 
+
+
+with open('loss_8bit.csv', 'w+') as csvfile:
+    csvwrite = csv.writer(csvfile, delimiter=',')
+    csvwrite.writerow(loss_list)
+
+#plt.plot(loss_list)
+#plt.show()
 
 
 
