@@ -23,6 +23,13 @@ http://www.wildml.com/2015/10/recurrent-neural-networks-tutorial-part-3-backprop
 From the above site, I'd like to explain 
 Why dE3/dW depends on dS0/dW, dS1/dW, dS2/dW and dS3/dW. The reason is that W are shared by all time steps. dE3/dW means what's the change of E3 by the change of W? Chaning W would also change S2, this would change S3 and impact E3. Thus, E3 can be changed partially by direct change in W through S3 or partially by W through S2 through S3, and so on. This partial effects should be summed to calculate total change of E3 by W. This is the best intuitive explanation I can come up with. Then, why the gradients are summed rather than 
 
+the key that I got from study group was the f(x,y) and x and y are depend on r use Einstein summation for the dF/dr. If we believe this relationship df/dr = df/dx dx/dr + df/dy dy/dr, then this can be applied to the backprop of RNN. 
+S3 in 
+http://www.wildml.com/2015/10/recurrent-neural-networks-tutorial-part-3-backpropagation-through-time-and-vanishing-gradients/
+depends on W and S2, because S2 depends on W. then ds3/dw -> ds3/dw + ds2/dw (very strange notation of ->).
+
+# In English, perturbance in W affects S3 both 1) directly and 2) through S2.*
+
 
 Reference:
 http://www.wildml.com/2015/10/recurrent-neural-networks-tutorial-part-3-backpropagation-through-time-and-vanishing-gradients/
