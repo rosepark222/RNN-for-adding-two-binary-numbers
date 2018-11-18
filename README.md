@@ -16,7 +16,8 @@ siraj_rnn_tensorflow_echo_gen.py
 
 
 
-
+# Backpropagation through time in RNN
+ 
 
 [WildML-RNN](http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/) says:
 "We also use the backpropagation algorithm, but with a little twist. Because the parameters are shared by all time steps in the network, the gradient at each output depends not only on the calculations of the current time step, but also the previous time steps. For example, in order to calculate the gradient at t=4 we would need to backpropagate 3 steps and sum up the gradients. This is called Backpropagation Through Time (BPTT)." 
